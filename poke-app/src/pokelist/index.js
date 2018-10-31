@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
+import { Button } from 'semantic-ui-react';
 
 
-const PokeList = (props) => {
-	const pokemonList = props.pokemon.map((pokemon, i) => {
-		return(
-			<li key={i}>
-				{pokemon.name}
-			</li>
-		)
-	});
+
+class PokeList extends Component {
+	handleFav = (e) => {
+		this.props.favAPoke(e.currentTarget.id);	
+	}
+	render(){
+		console.log(this.props.pokemon);
+		const pokemonList = this.props.pokemon.map((poke, i) => {
+			return(
+				<li key={i}>
+					{poke.name}<Button id={i} color='red' fluid size='small' onClick={this.handleFav}>Fav</Button>
+				</li>
+			)	
+		});
+
 		return(
 			<div>
-				<h2>Every Pokemon Ever:</h2>
+				<h2>Every Pokemon Ever</h2>
 				<ul>
 					{pokemonList}
 				</ul>
 			</div>
 		)
+	}
 }
-
 export default PokeList;
+
