@@ -15,7 +15,7 @@ class FavPokes extends Component {
 		});
 		return(
 			<div>
-				<h2>Your Favorite Pokemon</h2>
+				<h2>Your Favorite Pokemon:</h2>
 				<ul>
 					{pokemonList}
 				</ul>

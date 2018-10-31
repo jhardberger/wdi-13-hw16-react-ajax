@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PokeList from '../pokeList/index';
 import FavPokes from '../FavPokes/';
+import { Grid } from 'semantic-ui-react';
+
 
 class MainContainer extends Component {
 	constructor(){
@@ -42,8 +44,14 @@ class MainContainer extends Component {
 	render(){
 		return(
 			<div>
-				<PokeList pokemon={this.state.pokedex} favAPoke={this.favAPoke} />
-				<FavPokes pokemon={this.state.favPokes} />
+				<Grid>
+					<Grid.Column>					
+						<FavPokes pokemon={this.state.favPokes} />
+					</Grid.Column>
+					<Grid.Column>
+						<PokeList pokemon={this.state.pokedex} favAPoke={this.favAPoke} />
+					</Grid.Column>
+				</Grid>
 			</div>
 		)
 	}
